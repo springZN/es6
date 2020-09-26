@@ -13,9 +13,9 @@ window.addEventListener('load', function() {
     function verification(el, reg) {
         el.oninput = function() {
             if (reg.test(this.value)) {
-                this.nextElementSibling.innerHTML = '&#xe62a;输入的格式正确'
+                this.nextElementSibling.innerHTML = '✔ 输入的格式正确'
                     // 不能使用 classList 因为使用classList添加不会覆盖前面的类名 只会在后面添加 这样输入不正确格式以后 再输入正确的格式 不正确的类会覆盖正确的 
-                this.nextElementSibling.className = 'iconfont verification correct';
+                this.nextElementSibling.className = 'verification correct';
                 // 这里不太适合使用display：block 因为会把元素转换为块级 从而影响布局
                 this.nextElementSibling.style.visibility = 'visible'
                 el.onblur = function() {
@@ -24,22 +24,22 @@ window.addEventListener('load', function() {
             } else {
                 switch (el) {
                     case phone:
-                        this.nextElementSibling.innerHTML = '&#xe71c; 输入的格式应该为13、14、17、18开头的11位数字'
+                        this.nextElementSibling.innerHTML = '✘✘ 输入的格式应该为13、14、17、18开头的11位数字'
                         break;
                     case qq:
-                        this.nextElementSibling.innerHTML = '&#xe71c; qq号最少是五位数字，且第一位数字大于等于1'
+                        this.nextElementSibling.innerHTML = '✘ qq号最少是五位数字，且第一位数字大于等于1'
                         break;
                     case nickname:
-                        this.nextElementSibling.innerHTML = '&#xe71c; 最少一个字符，最多八个字符，不包含特殊符号'
+                        this.nextElementSibling.innerHTML = '✘ 最少一个字符，最多八个字符，不包含特殊符号'
                         break;
                     case veriCode:
-                        this.nextElementSibling.innerHTML = '&#xe71c; 短信验证码是6位数字'
+                        this.nextElementSibling.innerHTML = '✘ 短信验证码是6位数字'
                         break;
                     case password:
-                        this.nextElementSibling.innerHTML = '&#xe71c; 由6-16位数字 字母（支持大小写） -  _  组成'
+                        this.nextElementSibling.innerHTML = '✘ 由6-16位数字 字母（支持大小写） -  _  组成'
                         break;
                 }
-                this.nextElementSibling.className = 'iconfont verification incorrect'
+                this.nextElementSibling.className = 'verification incorrect'
                 this.nextElementSibling.style.visibility = 'visible'
             }
         }
@@ -59,25 +59,25 @@ window.addEventListener('load', function() {
     contrast.addEventListener('input', function() {
         // 确认密码和登录密码必须一致且登录密码符合规则 提示密码设置成功
         if (this.value === password.value && 　regpass.test(password.value)) {
-            this.nextElementSibling.innerHTML = '&#xe62a;密码设置成功'
-            this.nextElementSibling.className = 'iconfont verification correct'
+            this.nextElementSibling.innerHTML = '✔ 密码设置成功'
+            this.nextElementSibling.className = 'verification correct'
             this.nextElementSibling.style.visibility = 'visible'
             this.onblur = function() {
                 this.nextElementSibling.style.visibility = 'hidden'
             }
         } else {
-            this.nextElementSibling.innerHTML = '&#xe71c;两次的密码不一致'
-            this.nextElementSibling.className = 'iconfont verification incorrect'
+            this.nextElementSibling.innerHTML = '✘ 两次的密码不一致'
+            this.nextElementSibling.className = 'verification incorrect'
             this.nextElementSibling.style.visibility = 'visible';
             // 登录密码不符合规则的时候
             if (!regpass.test(password.value)) {
-                this.nextElementSibling.innerHTML = '&#xe71c;登录密码不符合规则'
-                this.nextElementSibling.className = 'iconfont verification incorrect'
+                this.nextElementSibling.innerHTML = '✘ 登录密码不符合规则'
+                this.nextElementSibling.className = 'verification incorrect'
             }
             // 登录密码为空的时候
             if (password.value == '') {
-                this.nextElementSibling.innerHTML = '&#xe71c;登录密码不能设置为空'
-                this.nextElementSibling.className = 'iconfont verification incorrect'
+                this.nextElementSibling.innerHTML = '✘ 登录密码不能设置为空'
+                this.nextElementSibling.className = 'verification incorrect'
             }
         }
     })
