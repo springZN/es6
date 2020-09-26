@@ -24,7 +24,7 @@ window.addEventListener('load', function() {
             } else {
                 switch (el) {
                     case phone:
-                        this.nextElementSibling.innerHTML = '✘✘ 输入的格式应该为13、14、17、18开头的11位数字'
+                        this.nextElementSibling.innerHTML = '✘ 输入的格式应该为13、14、17、18开头的11位数字'
                         break;
                     case qq:
                         this.nextElementSibling.innerHTML = '✘ qq号最少是五位数字，且第一位数字大于等于1'
