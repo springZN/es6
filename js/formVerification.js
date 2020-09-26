@@ -30,7 +30,7 @@ window.addEventListener('load', function() {
                         this.nextElementSibling.innerHTML = '✘ qq号最少是五位数字，且第一位数字大于等于1'
                         break;
                     case nickname:
-                        this.nextElementSibling.innerHTML = '✘ 最少一个字符，最多八个字符，不包含特殊符号'
+                        this.nextElementSibling.innerHTML = '✘ 不包含特殊符号'
                         break;
                     case veriCode:
                         this.nextElementSibling.innerHTML = '✘ 短信验证码是6位数字'
