@@ -18,9 +18,11 @@ window.addEventListener('load', function() {
                 this.nextElementSibling.className = 'verification correct';
                 // 这里不太适合使用display：block 因为会把元素转换为块级 从而影响布局
                 this.nextElementSibling.style.visibility = 'visible'
-                el.onblur = function() {
-                    this.nextElementSibling.style.visibility = 'hidden'
-                }
+                 this.onblur = function() {
+                     if (this.nextElementSibling.innerHTML == '✔ 输入的格式正确') {
+                           this.nextElementSibling.style.visibility = 'hidden'
+                    }
+            }
             } else {
                 switch (el) {
                     case phone:
@@ -63,7 +65,9 @@ window.addEventListener('load', function() {
             this.nextElementSibling.className = 'verification correct'
             this.nextElementSibling.style.visibility = 'visible'
             this.onblur = function() {
-                this.nextElementSibling.style.visibility = 'hidden'
+                if (this.nextElementSibling.innerHTML == '✔ 密码设置成功') {
+                    this.nextElementSibling.style.visibility = 'hidden'
+                }
             }
         } else {
             this.nextElementSibling.innerHTML = '✘ 两次的密码不一致'
